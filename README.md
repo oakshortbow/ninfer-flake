@@ -1,15 +1,12 @@
 # ninfer-flake
 
-[NInfer](https://github.com/Neroued/ninfer) packaged for Nix — the from-scratch
-C++/CUDA inference engine for Qwen3.5/3.6/3.8 Dense/MoE checkpoints on
-**a single RTX 5090** (`sm_120a` only; the upstream CMake rejects any other
-architecture).
+[NInfer](https://github.com/Neroued/ninfer) packaged for Nix.
 
 > **Personal use.** This flake is for my own machine and is generated and
 > maintained with an AI coding agent. It is provided as-is and may break
 > without notice when inputs move.
 
-Requires x86_64-linux, a GeForce RTX 5090, and a driver supporting `sm_120a`.
+Requires x86_64-linux, and a GeForce RTX 5090.
 
 ## Outputs
 
