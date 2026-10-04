@@ -1,0 +1,11 @@
+# nix build output link (and multi-output / -o variants)
+result
+result-*
+
+# nix develop scratch dir (shell profile + tmp)
+.nix/
+
+# model weights — multi-GB, fetched at runtime, never commit
+models/
+*.ninfer
+*.safetensors
