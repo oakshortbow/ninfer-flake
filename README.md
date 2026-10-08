@@ -16,7 +16,7 @@ Requires x86_64-linux, and a GeForce RTX 5090.
 | `apps.x86_64-linux.serve` (`.default`) | `nix run .#serve -- <args>` — OpenAI/Anthropic-compatible HTTP server |
 | `apps.x86_64-linux.cli` | `nix run .#cli -- <args>` — one-shot CLI generation |
 | `apps.x86_64-linux.perplexity` | `nix run .#perplexity -- <args>` — offline perplexity scoring |
-| `devShells.x86_64-linux.default` | build shell (the package's build deps + `hf`). **Untested** — see below |
+| `devShells.x86_64-linux.default` | build shell (the package's build deps + `hf` + `nix-update`) |
 
 ## Usage
 
@@ -64,7 +64,22 @@ flag reference and per-model examples.
 nix develop
 ```
 
-Supposed to provide the package's build dependencies (CUDA 12.9 toolkit,
-ffmpeg, curl, ninja, …, inherited via `inputsFrom`) plus the `hf` CLI for
-fetching artifacts. **Untested** beyond a PATH/pkg-config smoke check —
-treat it as best-effort.
+Provides the package's build dependencies (CUDA 12.9 toolkit, ffmpeg,
+curl, ninja, …, inherited via `inputsFrom`), the `hf` CLI for fetching
+model artifacts, and `nix-update` for bumping the source (below).
+
+## Updating
+
+Bump the packaged source to `master` HEAD (rewrites rev + hash in
+`package.nix`):
+
+```sh
+nix develop
+nix-update -f . --flake packages.x86_64-linux.ninfer --version branch=master
+```
+
+Bump the `nixpkgs` flake input:
+
+```sh
+nix flake update
+```
