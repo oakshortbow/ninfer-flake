@@ -5,6 +5,9 @@ result-*
 # nix develop scratch dir (shell profile + tmp)
 .nix/
 
+# direnv / nix-direnv local state
+.direnv/
+
 # model weights — multi-GB, fetched at runtime, never commit
 models/
 *.ninfer
