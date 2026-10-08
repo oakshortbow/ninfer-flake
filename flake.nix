@@ -46,6 +46,7 @@
       devShells.${system}.default = pkgs.mkShell {
         inputsFrom = [ ninfer ];
         packages = [
+          pkgs.nix-update
           pkgs.python3Packages."huggingface-hub"
         ];
         shellHook = ''
@@ -55,6 +56,7 @@
           fi
           echo "NInfer development shell (CUDA 12.9, sm_120a / RTX 5090)"
           echo "Models: hf download neroued/Qwen3.8-27B-nvfp4-NInfer qwen3_8_27b_nvfp4.ninfer --local-dir ~/models"
+          echo "Update source to master HEAD: nix-update -f . --flake packages.x86_64-linux.ninfer --version branch=master"
         '';
       };
     };
