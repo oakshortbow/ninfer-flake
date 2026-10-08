@@ -45,6 +45,7 @@ stdenv.mkDerivation (finalAttrs: rec {
     (lib.cmakeBool "NINFER_BUILD_APPS" true)
     (lib.cmakeBool "BUILD_TESTING" false)
     (lib.cmakeBool "NINFER_BUILD_BENCHMARKS" false)
+    "-DCMAKE_EXE_LINKER_FLAGS=-L${stdenv.cc.cc.lib}/lib"
   ];
 
   defaultInstallPhase = true;
