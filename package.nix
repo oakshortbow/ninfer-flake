@@ -20,8 +20,8 @@ stdenv.mkDerivation (finalAttrs: rec {
   src = fetchFromGitHub {
     owner = "Neroued";
     repo = "ninfer";
-    rev = "68c54356fd490ab329bd1475d48957f886bb7dd1";
-    hash = "sha256-51aQAUsSqav3HgWGb3zMoDHpg2Grf6miHZERpnNXjvk=";
+    rev = "81c8ce093b2c1646a87566a8e59d807fcf0ec95c";
+    hash = "sha256-D+rrNhQ5+cvQu1Ylhlzu36WJZgGLmKydeGLGz8KZ/c8=";
   };
 
   nativeBuildInputs = [
